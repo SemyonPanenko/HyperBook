@@ -6,12 +6,13 @@
 class BoardManager {
 public:
 
+    BoardManager(BoardVisualizer* bv);
     void visualize_current_board();
     void set_board(Board* board_to_set);
 
 private:
 
     Board* current_board;
-    BoardVisualizer current_visualizer;
+    BoardVisualizer* current_visualizer;
 
 };

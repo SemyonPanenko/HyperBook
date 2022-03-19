@@ -7,12 +7,12 @@
 class Application {
 public:
     
-    Application(BoardManager& board_manager, ProjectManager& proj_man);
+    Application(BoardManager* board_manager, ProjectManager* proj_man);
     void run();
     
 private:
 
-    BoardManager board_manager;
-    ProjectManager project_manager;
+    BoardManager* board_manager;
+    ProjectManager* project_manager;
 
 };

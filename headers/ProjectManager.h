@@ -5,6 +5,8 @@
 class ProjectManager {
 public:
 
+    ProjectManager(ProjectVisualizer* project_vis);
+
     void create_project();
     void visualize_project();
     void close_project();
@@ -12,6 +14,6 @@ public:
 private:
 
     Project current_project;
-    ProjectVisualizer current_visualizer;
+    ProjectVisualizer* current_visualizer;
     
 };

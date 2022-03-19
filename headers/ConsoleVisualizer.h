@@ -3,16 +3,16 @@
 #include "headers/TextContent.h"
 #include <iostream>
 
-class ConsoleProjectVisualizer {
+class ConsoleProjectVisualizer : public ProjectVisualizer {
 
-    void visualize_tree(BoardTree& board_to_visualize);
+    void visualize_tree(BoardTree& board_to_visualize) override;
 
 };
 
-class ConsoleBoardVisualizer {
+class ConsoleBoardVisualizer : public BoardVisualizer {
 public:
 
-    void visualize_board(const Board& board);
+    void visualize_board(const Board& board) override;
 
 private:
 

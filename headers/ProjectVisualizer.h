@@ -4,6 +4,7 @@
 class ProjectVisualizer {
 public:
 
-    void visualize_tree(BoardTree& board_to_visualize);
+    virtual void visualize_tree(BoardTree& board_to_visualize) = 0;
+    virtual ~ProjectVisualizer(){};
 
 };

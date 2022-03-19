@@ -20,6 +20,8 @@ class BoardTree
         BoardNode *add_sub_board();
     };
 
+public:
+
     BoardTree();
 
     BoardNode *head;

@@ -3,5 +3,6 @@
 
 class BoardVisualizer {
 public:
-    void visualize_board(const Board& board);
+    virtual void visualize_board(const Board& board) = 0;
+    virtual ~BoardVisualizer(){};
 };
