@@ -6,7 +6,6 @@ class ProjectManager {
 public:
 
     void create_project();
-    void open_project();
     void visualize_project();
     void close_project();
 

@@ -1,16 +1,26 @@
 #include "headers/Board.h"
-#pragma once
 #include <list>
+#include <cstdlib>
+#include <isotream>
 
-class BoardTree {
+#pragma once
 
-    class BoardNode {
-        public:
+class BoardTree
+{
 
-            std::list<BoardNode*> sub_boards;    
-            Board board;
-            uint64_t board_node_id;
+    class BoardNode
+    {
+    public:
+        BoardNode();
 
+        std::list<BoardNode *> sub_boards;
+        Board board;
+        uint64_t board_node_id;
+
+        BoardNode *add_sub_board();
     };
 
+    BoardTree();
+
+    BoardNode *head;
 };
