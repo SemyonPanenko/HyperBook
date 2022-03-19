@@ -1,7 +1,7 @@
 #include "headers/Board.h"
 #include <list>
 #include <cstdlib>
-#include <isotream>
+#include <iostream>
 
 #pragma once
 

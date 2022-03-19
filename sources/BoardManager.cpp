@@ -1,4 +1,4 @@
-#include "headers/BoardManger.h"
+#include "headers/BoardManager.h"
 
 void BoardManager::visualize_current_board() {
 
@@ -14,7 +14,7 @@ void BoardManager::visualize_current_board() {
 
 }
 
-void BoardManager::set_board(Board* brd)) {
+void BoardManager::set_board(Board* brd) {
 
     current_board = brd;
 

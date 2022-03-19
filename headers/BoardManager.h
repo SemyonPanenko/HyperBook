@@ -1,5 +1,6 @@
 #include "headers/Board.h"
 #include "headers/BoardVisualizer.h"
+#include <iostream>
 #pragma once
 
 class BoardManager {
