@@ -44,14 +44,6 @@ void ConsoleInterface::run() {
 
         }
 
-        if (current_command == "visualize_content") {
-
-            holding_app->board_manager->current_visualizer->visualize_board(
-                holding_app->board_manager->current_board->board
-            );
-
-        }
-
         if (current_command == "add_content_from_text_file") {
 
             std::cout << "Please, enter a name of a text_file: \n";

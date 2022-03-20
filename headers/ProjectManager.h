@@ -7,9 +7,9 @@ public:
 
     ProjectManager(ProjectVisualizer* project_vis);
 
-    void create_project();
+    // void create_project();
     void visualize_project();
-    void close_project();
+    // void close_project();
 
     Project current_project;
     ProjectVisualizer* current_visualizer;
