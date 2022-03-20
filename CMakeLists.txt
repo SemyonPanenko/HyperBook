@@ -58,6 +58,7 @@ target_link_libraries(MainTarget ConsoleInterface)
 
 target_link_libraries(ProjectManager Project)
 target_link_libraries(ProjectManager BoardTree)
+target_link_libraries(Project BoardTree)
 
 target_link_libraries(ConsoleVisualizer TextContent)
 

@@ -1,4 +1,5 @@
 #include "Content.h"
+#pragma once
 
 class TextContent : public Content {
 public:

@@ -1,5 +1,6 @@
 #include "headers/Board.h"
 #include "headers/BoardVisualizer.h"
+#include "headers/BoardTree.h"
 #include <iostream>
 #pragma once
 
@@ -8,11 +9,9 @@ public:
 
     BoardManager(BoardVisualizer* bv);
     void visualize_current_board();
-    void set_board(Board* board_to_set);
+    void set_board(BoardTree::BoardNode* board_to_set);
 
-private:
-
-    Board* current_board;
+    BoardTree::BoardNode* current_board;
     BoardVisualizer* current_visualizer;
 
 };

@@ -11,8 +11,6 @@ public:
     void visualize_project();
     void close_project();
 
-private:
-
     Project current_project;
     ProjectVisualizer* current_visualizer;
     

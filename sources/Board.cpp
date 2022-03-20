@@ -33,3 +33,9 @@ Board::~Board() {
     }
 
 }   
+
+Board::Board() {
+
+    std::cout << "Constructing board\n";
+
+}

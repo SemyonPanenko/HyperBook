@@ -2,6 +2,7 @@
 #include "headers/ProjectVisualizer.h"
 #include "headers/TextContent.h"
 #include <iostream>
+#pragma once
 
 class ConsoleProjectVisualizer : public ProjectVisualizer {
 

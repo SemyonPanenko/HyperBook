@@ -12,11 +12,13 @@ public:
     class BoardNode
     {
     public:
-        BoardNode();
+        BoardNode(BoardNode* upper_node);
 
-        std::list<BoardNode *> sub_boards;
+        std::unordered_map<uint64_t, BoardNode*> sub_boards;
         Board board;
         uint64_t board_node_id;
+
+        BoardNode* upper_node;
 
         BoardNode *add_sub_board();
     };

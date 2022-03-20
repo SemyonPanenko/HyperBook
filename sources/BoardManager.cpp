@@ -8,7 +8,7 @@ void BoardManager::visualize_current_board() {
 
     if (current_board) {
 
-        current_visualizer->visualize_board(*current_board);
+        current_visualizer->visualize_board(current_board->board);
 
     } else {
 
@@ -18,7 +18,7 @@ void BoardManager::visualize_current_board() {
 
 }
 
-void BoardManager::set_board(Board* brd) {
+void BoardManager::set_board(BoardTree::BoardNode* brd) {
 
     current_board = brd;
 
