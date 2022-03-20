@@ -12,8 +12,8 @@ public:
     void run();
 
     ~Application();
+    bool is_running;
 
-private:
     BoardManager *board_manager;
     ProjectManager *project_manager;
 };

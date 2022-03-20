@@ -27,6 +27,7 @@ set(project_src ${src_dir}/Project.cpp)
 set(board_tree_src ${src_dir}/BoardTree.cpp)
 set(proj_man_src ${src_dir}/ProjectManager.cpp)
 set(app_src ${src_dir}/Application.cpp)
+set(cons_inter_src ${src_dir}/ConsoleInterface.cpp)
 
 #creating targets
 add_executable(MainTarget ${main_src})
@@ -39,6 +40,7 @@ add_library(Project ${project_src})
 add_library(BoardTree ${board_tree_src})
 add_library(ProjectManager ${proj_man_src})
 add_library(Application ${app_src})
+add_library(ConsoleInterface ${cons_inter_src})
 
 #linking targets
 target_link_libraries(MainTarget 
@@ -52,6 +54,7 @@ target_link_libraries(MainTarget BoardTree)
 target_link_libraries(MainTarget Project)
 target_link_libraries(MainTarget ProjectManager)
 target_link_libraries(MainTarget Application)
+target_link_libraries(MainTarget ConsoleInterface)
 
 target_link_libraries(ProjectManager Project)
 target_link_libraries(ProjectManager BoardTree)

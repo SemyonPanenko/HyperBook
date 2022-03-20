@@ -1,5 +1,6 @@
 #include "headers/Application.h"
 #include "headers/ConsoleVisualizer.h"
+#include "headers/ConsoleInterface.h"
 #include <iostream>
 
 int main(int argc, char* argv[]) {
@@ -22,15 +23,22 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Generated project manager\n";
 
-    Application app(bm, pm);
+    Application* app = new Application(bm, pm);
 
     std::cout << "Generated application\n";
 
-    app.run();
+    ConsoleInterface* ci = new ConsoleInterface(app);
+
+    app->run();
+
+    ci->run();
+
 
     delete cbv;
     delete cpv;
     delete bm;
     delete pm;
+    delete app;
+    delete ci;
 
 }

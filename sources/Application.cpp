@@ -6,8 +6,7 @@ Application::~Application() {}
 void Application::run() {
 
     std::cout << "Running application\n";
-
-
+    is_running = true;
     std::cout << "Application stopped\n";
 
 }

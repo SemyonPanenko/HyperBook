@@ -4,8 +4,6 @@
 class Project {
 public:
 
-private:
-
     BoardTree all_boards;
 
 };

@@ -30,15 +30,17 @@ void ConsoleProjectVisualizer::visualize_tree(BoardTree &board_to_visualize)
     current_offset = 0;
     visualize_board_node(*board_to_visualize.head);
 
+    std::cout << "Ended tree visualization\n";
+
 }
 
 void ConsoleProjectVisualizer::visualize_board_node(const BoardTree::BoardNode &node_to_visualize)
 {
     std::string offset_str(current_offset, '=');
 
-    std::cout << current_offset;
+    std::cout << offset_str;
     std::cout << "board node with number:" << node_to_visualize.board_node_id << "\n";
-    std::cout << current_offset;
+    std::cout << offset_str;
     std::cout << "His subboards:\n";
 
     current_offset += 4;
