@@ -6,6 +6,9 @@
 class ConsoleProjectVisualizer : public ProjectVisualizer {
 
     void visualize_tree(BoardTree& board_to_visualize) override;
+    void visualize_board_node(const BoardTree::BoardNode& brd_node);
+
+    uint64_t current_offset = 0;
 
 };
 

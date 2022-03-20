@@ -11,4 +11,6 @@ public:
 
     std::unordered_map<uint64_t, Content*> contents;
 
+    ~Board();
+
 };

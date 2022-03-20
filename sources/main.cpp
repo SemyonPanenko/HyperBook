@@ -26,4 +26,11 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Generated application\n";
 
+    app.run();
+
+    delete cbv;
+    delete cpv;
+    delete bm;
+    delete pm;
+
 }

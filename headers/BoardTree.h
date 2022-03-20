@@ -7,6 +7,7 @@
 
 class BoardTree
 {
+public:
 
     class BoardNode
     {
@@ -19,8 +20,6 @@ class BoardTree
 
         BoardNode *add_sub_board();
     };
-
-public:
 
     BoardTree();
 

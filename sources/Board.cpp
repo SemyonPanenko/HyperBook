@@ -23,3 +23,13 @@ void Board::remove_content(uint64_t content_id)
 
     }
 }
+
+Board::~Board() {
+
+    for (auto content_iter : contents) {
+
+        delete content_iter.second;
+
+    }
+
+}   
