@@ -1,0 +1,18 @@
+#include <string>
+
+const std::string visualize_project_command = "visualize_project";
+const std::string visualize_board_command = "visualize_board";
+const std::string add_board_command = "add_board";
+const std::string add_content_from_text_file_command = "add_content_from_text_file";
+const std::string up_board_tree_command = "go_up";
+const std::string go_down_board_by_id_command = "go_down_id";
+const std::string get_current_id_command = "get_current_id";
+const std::string stop_command = "stop";
+
+const std::string opening_message = "===============================\nAll the preparations were completed and I am ready to listen to your commands\n"; 
+const std::string went_up_board_message = "Went up to board with id= ";
+const std::string success_went_down_message = "Successfully went down\n";
+const std::string board_id_message = "You are currently in a board with id= ";
+
+const std::string ask_for_id_message = "Please enter id of a required board: \n";
+const std::string ask_for_text_file_name_message = "Please, enter a name of a text_file: \n";

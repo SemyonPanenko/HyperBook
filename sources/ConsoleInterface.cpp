@@ -12,41 +12,40 @@ std::string ConsoleInterface::await_command() {
 
 void ConsoleInterface::run() {
 
-    std::cout << "===============================\n";
-    std::cout << "All the preparations were completed and I am ready to listen to your commands\n";
+    std::cout << opening_message;
 
     while(holding_app->is_running){
 
         std::string current_command = await_command();
-        std::cout << "Currently completing command " << current_command << "\n";
 
-        if (current_command == "stop") {
+        if (current_command == stop_command) {
 
             holding_app->is_running = false;
 
         }
 
-        if (current_command == "visualize_project") {
+        if (current_command == visualize_project_command) {
 
             holding_app->project_manager->visualize_project();
 
         }
 
-        if (current_command == "visualize_board") {
+        if (current_command == visualize_board_command) {
 
             holding_app->board_manager->visualize_current_board();
 
         }
 
-        if (current_command == "add_board") {
+        if (current_command == add_board_command) {
 
             holding_app->board_manager->current_board->add_sub_board();
 
         }
 
-        if (current_command == "add_content_from_text_file") {
+        if (current_command == add_content_from_text_file_command) {
 
-            std::cout << "Please, enter a name of a text_file: \n";
+            std::cout << ask_for_text_file_name_message;
+
             std::string input_file_name;
             std::cin >> input_file_name;
 
@@ -57,7 +56,7 @@ void ConsoleInterface::run() {
 
         }
 
-        if (current_command == "go_up") {
+        if (current_command == up_board_tree_command) {
 
             holding_app->board_manager->set_board(
                 holding_app->board_manager->current_board->upper_node
@@ -65,13 +64,13 @@ void ConsoleInterface::run() {
 
             auto current_board_id = holding_app->board_manager->current_board->board_node_id;
 
-            std::cout << "Went up to board with id= " << current_board_id << "\n";
+            std::cout << went_up_board_message << current_board_id << "\n";
 
         }
 
-        if (current_command == "go_down_id") {
+        if (current_command == go_down_board_by_id_command) {
 
-            std::cout << "Please enter id of a required board: \n";
+            std::cout << ask_for_id_message;
             uint64_t board_id;
             std::cin >> board_id;
 
@@ -81,15 +80,15 @@ void ConsoleInterface::run() {
 
             );
 
-            std::cout << "Successfully went down\n";
+            std::cout << success_went_down_message;
 
         }
 
-        if (current_command == "get_current_id") {
+        if (current_command == get_current_id_command) {
 
             auto current_board_id = holding_app->board_manager->current_board->board_node_id;
 
-            std::cout << "You are currently in a board with id= " << current_board_id << "\n";
+            std::cout << board_id_message << current_board_id << "\n";
 
         }
 

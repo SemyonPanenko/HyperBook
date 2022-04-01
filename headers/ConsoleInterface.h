@@ -1,5 +1,6 @@
 #include "headers/UserInterface.h"
 #include "headers/ConsoleVisualizer.h"
+#include "headers/ConsoleVisualizerMessages.h"
 #include <string>
 #include <iostream>
 #pragma once
