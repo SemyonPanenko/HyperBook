@@ -1,6 +1,7 @@
 #include "headers/BoardVisualizer.h"
 #include "headers/ProjectVisualizer.h"
 #include "headers/TextContent.h"
+#include "headers/ConsoleVisualizerMessages.h"
 #include <iostream>
 #pragma once
 
