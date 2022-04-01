@@ -10,10 +10,6 @@ void BoardManager::visualize_current_board() {
 
         current_visualizer->visualize_board(current_board->board);
 
-    } else {
-
-        std::cout << "Tried visualizing empty board!\n";
-
     }
 
 }

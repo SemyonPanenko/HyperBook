@@ -5,8 +5,6 @@ Application::~Application() {}
 
 void Application::run() {
 
-    std::cout << "Running application\n";
-    
     is_running = true;
     board_manager->set_board(project_manager->current_project.all_boards.head);
 
