@@ -1,4 +1,4 @@
-#include "headers/ConsoleVisualizer.h"
+#include "headers/ConsoleVisInt/ConsoleVisualizer.h"
 
 void ConsoleBoardVisualizer::visualize_board(const Board &board)
 {

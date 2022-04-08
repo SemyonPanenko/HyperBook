@@ -1,4 +1,4 @@
-#include "headers/Board.h"
+#include "headers/Board/Board.h"
 
 void Board::add_content(Content* content_to_add)
 {

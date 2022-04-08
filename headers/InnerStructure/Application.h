@@ -1,7 +1,7 @@
-#include "headers/BoardManager.h"
-#include "headers/ProjectManager.h"
-#include "headers/ProjectVisualizer.h"
-#include "headers/BoardVisualizer.h"
+#include "headers/Board/BoardManager.h"
+#include "headers/InnerStructure/ProjectManager.h"
+#include "headers/Interfaces/ProjectVisualizer.h"
+#include "headers/Interfaces/BoardVisualizer.h"
 #include <iostream>
 #pragma once
 

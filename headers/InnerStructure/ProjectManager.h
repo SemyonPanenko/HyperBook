@@ -1,5 +1,5 @@
-#include "headers/Project.h"
-#include "headers/ProjectVisualizer.h"
+#include "headers/InnerStructure/Project.h"
+#include "headers/Interfaces/ProjectVisualizer.h"
 #pragma once
 
 class ProjectManager {

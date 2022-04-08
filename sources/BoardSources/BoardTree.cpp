@@ -1,4 +1,4 @@
-#include "headers/BoardTree.h"
+#include "headers/Board/BoardTree.h"
 
 
 BoardTree::BoardNode::BoardNode(BoardNode* upper_node=nullptr) : upper_node(upper_node) {

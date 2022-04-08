@@ -1,4 +1,4 @@
-#include "headers/BoardManager.h"
+#include "headers/Board/BoardManager.h"
 
 BoardManager::BoardManager(BoardVisualizer* bv) : current_visualizer(bv) {
 

@@ -1,4 +1,4 @@
-#include "headers/ConsoleInterface.h"
+#include "headers/ConsoleVisInt/ConsoleInterface.h"
 
 ConsoleInterface::ConsoleInterface(Application *holding_app) : UserInterface(holding_app){};
 

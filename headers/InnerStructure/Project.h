@@ -1,4 +1,4 @@
-#include "headers/BoardTree.h"
+#include "headers/Board/BoardTree.h"
 #pragma once
 
 class Project {

@@ -1,4 +1,4 @@
-#include "headers/Board.h"
+#include "headers/Board/Board.h"
 #include <list>
 #include <cstdlib>
 #include <iostream>

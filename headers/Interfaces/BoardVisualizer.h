@@ -1,4 +1,4 @@
-#include "headers/Board.h"
+#include "headers/Board/Board.h"
 #pragma once
 
 class BoardVisualizer {

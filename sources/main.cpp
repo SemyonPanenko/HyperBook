@@ -1,6 +1,6 @@
-#include "headers/Application.h"
-#include "headers/ConsoleVisualizer.h"
-#include "headers/ConsoleInterface.h"
+#include "headers/InnerStructure/Application.h"
+#include "headers/ConsoleVisInt/ConsoleVisualizer.h"
+#include "headers/ConsoleVisInt/ConsoleInterface.h"
 #include <iostream>
 
 int main(int argc, char* argv[]) {

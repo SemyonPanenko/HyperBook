@@ -1,7 +1,7 @@
-#include "headers/BoardVisualizer.h"
-#include "headers/ProjectVisualizer.h"
-#include "headers/TextContent.h"
-#include "headers/ConsoleVisualizerMessages.h"
+#include "headers/Interfaces/BoardVisualizer.h"
+#include "headers/Interfaces/ProjectVisualizer.h"
+#include "headers/Content/TextContent.h"
+#include "headers/ConsoleVisInt/ConsoleVisualizerMessages.h"
 #include <iostream>
 #pragma once
 

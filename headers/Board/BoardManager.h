@@ -1,6 +1,6 @@
-#include "headers/Board.h"
-#include "headers/BoardVisualizer.h"
-#include "headers/BoardTree.h"
+#include "headers/Board/Board.h"
+#include "headers/Interfaces/BoardVisualizer.h"
+#include "headers/Board/BoardTree.h"
 #include <iostream>
 #pragma once
 

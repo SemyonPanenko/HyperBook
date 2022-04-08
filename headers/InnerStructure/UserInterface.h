@@ -1,4 +1,4 @@
-#include "headers/Application.h"
+#include "headers/InnerStructure/Application.h"
 #pragma once 
 
 class UserInterface {

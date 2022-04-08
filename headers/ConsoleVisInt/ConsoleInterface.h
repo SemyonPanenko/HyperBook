@@ -1,6 +1,6 @@
-#include "headers/UserInterface.h"
-#include "headers/ConsoleVisualizer.h"
-#include "headers/ConsoleInterfaceMessages.h"
+#include "headers/InnerStructure/UserInterface.h"
+#include "headers/ConsoleVisInt/ConsoleVisualizer.h"
+#include "headers/ConsoleVisInt/ConsoleInterfaceMessages.h"
 #include <string>
 #include <iostream>
 #pragma once
