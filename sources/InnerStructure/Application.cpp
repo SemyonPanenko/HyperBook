@@ -1,6 +1,11 @@
 #include "headers/InnerStructure/Application.h"
 
-Application::Application(BoardManager* bm, ProjectManager* pm) : board_manager(bm), project_manager(pm) {};
+Application::Application(BoardManager* bm, ProjectManager* pm, CommandHandler* ch) : board_manager(bm), 
+project_manager(pm), command_handler(ch) {
+
+    ch->app = this;
+
+};
 Application::~Application() {}
 
 void Application::run() {

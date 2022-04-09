@@ -1,7 +1,7 @@
 #include "headers/Interfaces/ProjectVisualizer.h"
 #include "headers/Interfaces/BoardVisualizer.h"
 #include "headers/Content/TextContent.h"
-#include "string"
+#include "headers/FileVisualizer/FileVisualizerConst.h"
 #include <fstream>
 
 class FileBoardVisualizer : public BoardVisualizer {

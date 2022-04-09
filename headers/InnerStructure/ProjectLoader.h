@@ -1,5 +1,6 @@
 #include "headers/InnerStructure/Project.h"
 #include "headers/Content/TextContent.h"
+#include "headers/FileVisualizer/FileVisualizerConst.h"
 #include <fstream>
 
 class ProjectLoader {

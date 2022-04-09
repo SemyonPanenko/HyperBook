@@ -13,7 +13,6 @@ void TextContent::retrieve_content_from_file(const std::string &file_path)
 
     while (std::getline(file_desc, data_chunk))
     {
-        std::cout << data_chunk << "\n";
         text_data += data_chunk;
         text_data += "\n";
     }

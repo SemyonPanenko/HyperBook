@@ -19,10 +19,6 @@ BoardTree::BoardNode* BoardTree::BoardNode::add_sub_board() {
     BoardNode* new_board = new BoardNode(this);
 
     sub_boards.insert({new_board->board_node_id, new_board});
-    
-    std::cout << "Just created board with board id: " << new_board->board_node_id << "\n";
-
-    std::cout.flush();
 
     return new_board;
 

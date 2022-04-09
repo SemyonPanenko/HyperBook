@@ -1,6 +1,7 @@
 #include "headers/InnerStructure/Application.h"
 #include "headers/ConsoleVisInt/ConsoleVisualizer.h"
 #include "headers/ConsoleVisInt/ConsoleInterface.h"
+#include "headers/InnerStructure/CommandHandler.h"
 #include <iostream>
 #include <ctime>
 
@@ -26,15 +27,17 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Generated project manager\n";
 
-    Application* app = new Application(bm, pm);
+    CommandHandler* ch = new CommandHandler();
+
+    Application* app = new Application(bm, pm, ch);
 
     std::cout << "Generated application\n";
 
     ConsoleInterface* ci = new ConsoleInterface(app);
 
     app->run();
-    ci->run();
 
+    ci->run();
 
     delete cbv;
     delete cpv;
@@ -42,5 +45,6 @@ int main(int argc, char* argv[]) {
     delete pm;
     delete app;
     delete ci;
+    delete ch;
 
 }
