@@ -10,6 +10,7 @@ class Application
 public:
     Application(BoardManager *board_manager, ProjectManager *proj_man);
     void run();
+    void reset_board();
 
     ~Application();
     bool is_running;

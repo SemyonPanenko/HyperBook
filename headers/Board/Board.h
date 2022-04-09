@@ -13,7 +13,7 @@ public:
     void remove_content(uint64_t content_id);
 
     std::unordered_map<uint64_t, Content*> contents;
+    size_t board_id_;
 
     ~Board();
-
 };

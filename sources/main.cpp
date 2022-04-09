@@ -2,8 +2,11 @@
 #include "headers/ConsoleVisInt/ConsoleVisualizer.h"
 #include "headers/ConsoleVisInt/ConsoleInterface.h"
 #include <iostream>
+#include <ctime>
 
 int main(int argc, char* argv[]) {
+
+    std::srand(std::time(0));
 
     std::cout << "Launching main function\n";
 

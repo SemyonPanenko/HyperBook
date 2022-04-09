@@ -86,11 +86,16 @@ void ConsoleInterface::run()
             uint64_t board_id;
             std::cin >> board_id;
 
-            holding_app->board_manager->set_board(
+            try{
+                holding_app->board_manager->set_board(
 
-                holding_app->board_manager->current_board->sub_boards[board_id]
+                    holding_app->board_manager->current_board->sub_boards.at(board_id)
 
-            );
+                );
+            } catch (std::out_of_range& excep) {
+
+                std::cout << "No such sub board =(\n";
+            }
 
             std::cout << success_went_down_message;
         }
@@ -113,6 +118,17 @@ void ConsoleInterface::run()
 
             std::cout << success_save_project_message;
 
+
+        }
+
+        if (current_command == "load_project") {
+
+            std::cout << "Please, enter full absolute path to project\n";
+            std::string project_path_;
+
+            std::cin >> project_path_;
+            holding_app->project_manager->load_project(project_path_);
+            holding_app->reset_board();
 
         }
     }

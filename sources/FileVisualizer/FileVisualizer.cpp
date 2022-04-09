@@ -1,24 +1,21 @@
 #include "headers/FileVisualizer/FileVisualizer.h"
 
-FileBoardVisualizer::FileBoardVisualizer(std::string desired_path) {
-
-    auto actual_path = desired_path + ".hp";
-    file_desc_.open(actual_path);
-
+FileBoardVisualizer::FileBoardVisualizer(std::string desired_path) : project_path_(desired_path) {
 };
 
 void FileBoardVisualizer::visualize_board(const Board& board) {
 
-    file_desc_ << "\nboard_start_tag: \n";
+    std::string this_board_folder_path = project_path_ + "/" + std::to_string(board.board_id_);
+    std::string create_folder_command = "../sources/Scripts/create_nested_folder.sh " + this_board_folder_path; 
+    std::system(create_folder_command.c_str());
 
     for (auto content_iter = board.contents.begin();
          content_iter != board.contents.end();
          ++content_iter)
     {
-        visualize_content(content_iter->second);
+        std::string this_content_file_path = this_board_folder_path + "/" + std::to_string(content_iter->first) + ".txt";
+        visualize_content(content_iter->second, this_content_file_path);
     }
-
-    file_desc_ << "\nboard_end_tag: \n";
 
 };
 
@@ -32,69 +29,59 @@ void FileBoardVisualizer::visualize_all_boards(BoardTree::BoardNode& board_node)
 
     }
 
-
 }
 
-void FileBoardVisualizer::visualize_content(Content* content) {
-
+void FileBoardVisualizer::visualize_content(Content* content, const std::string& this_content_file_path) {
 
     auto to_text_ptr = dynamic_cast<TextContent *const>(content);
 
     if (to_text_ptr)
     {
-        file_desc_ << "text_content_start_tag: \n";
-        file_desc_ << to_text_ptr->text_data;
-        file_desc_ << "\ntext_content_end_tag: \n";
+        std::ofstream this_content_visualizer_;
+        this_content_visualizer_.open(this_content_file_path);
+
+        this_content_visualizer_ << to_text_ptr->text_data;
+
+        this_content_visualizer_.close();
     }
 
 };
 
 FileBoardVisualizer::~FileBoardVisualizer() {
 
-    file_desc_.close();
-
 };
 
-FileProjectVisualizer::FileProjectVisualizer(std::string desired_path) {
-
-    std::string actual_path = desired_path + ".hp";
-    file_desc_.open(actual_path, std::ios_base::app);
-
+FileProjectVisualizer::FileProjectVisualizer(std::string desired_path) : project_path_(desired_path) {
 };
 
 FileProjectVisualizer::~FileProjectVisualizer() {
-
-    file_desc_.close();
-
 };
 
 void FileProjectVisualizer::visualize_tree(BoardTree& board_to_visualize) {
 
-    file_desc_ << "tree_visualization_start_tag: \n";
-    
-    visualize_board_node(*board_to_visualize.head);
+    std::ofstream project_visualizer_desc_;
+    project_visualizer_desc_.open(project_path_ + "/project_tree.txt");
 
-    file_desc_ << "tree_visualization_end_tag: \n";
+    visualize_board_node(*board_to_visualize.head, project_visualizer_desc_);
 
 };
 
-void FileProjectVisualizer::visualize_board_node(const BoardTree::BoardNode& board_node){
+void FileProjectVisualizer::visualize_board_node(const BoardTree::BoardNode& board_node, std::ofstream& file_desc_){
 
     file_desc_ << "board_node_begin_tag: \n";
     file_desc_ << board_node.board_node_id << "\n";
-    file_desc_ << "sub_boards_begin_tag: \n";
     
     if (board_node.sub_boards.size()){
 
+        file_desc_ << "sub_boards_begin_tag: \n";
         for (auto sub_board_ptr : board_node.sub_boards){
 
-            visualize_board_node(*(sub_board_ptr.second));
+            visualize_board_node(*(sub_board_ptr.second), file_desc_);
 
         }
-
+        file_desc_ << "sub_board_end_tag: \n";
     }
 
-    file_desc_ << "sub_board_end_tag: \n";
     file_desc_ << "board_node_end_tag: \n";
 
 };

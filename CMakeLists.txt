@@ -44,6 +44,7 @@ set(inner_structure_src ${src_dir}/InnerStructure)
 set(project_src ${inner_structure_src}/Project.cpp)
 set(proj_man_src ${inner_structure_src}/ProjectManager.cpp)
 set(app_src ${inner_structure_src}/Application.cpp)
+set(proj_loader_src ${inner_structure_src}/ProjectLoader.cpp)
 
 #creating targets
 add_executable(MainTarget ${main_src})
@@ -58,7 +59,7 @@ add_library(ProjectManager ${proj_man_src})
 add_library(Application ${app_src})
 add_library(ConsoleInterface ${cons_inter_src})
 add_library(FileVisualizer ${file_vis_src})
-
+add_library(ProjectLoader ${proj_loader_src})
 #linking targets
 target_link_libraries(MainTarget 
     ${GTKMM_LIBRARIES}  )
@@ -76,6 +77,7 @@ target_link_libraries(MainTarget FileVisualizer)
 
 target_link_libraries(ProjectManager Project)
 target_link_libraries(ProjectManager BoardTree)
+target_link_libraries(ProjectManager ProjectLoader)
 target_link_libraries(Project BoardTree)
 
 target_link_libraries(ConsoleVisualizer TextContent)
