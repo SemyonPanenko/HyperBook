@@ -5,6 +5,8 @@
 #include <fstream>
 #pragma once
 
+const std::string clean_directory_script_path = "../sources/Scripts/clean_directory.sh";
+
 class ProjectManager {
 public:
 

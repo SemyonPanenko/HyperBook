@@ -14,6 +14,9 @@ void ProjectManager::visualize_project() {
 
 void ProjectManager::save_project(std::string& desired_path) {
 
+    std::string clean_directory_command = clean_directory_script_path + " " + desired_path;
+    std::system(clean_directory_command.c_str());
+
     FileBoardVisualizer* board_vis = new FileBoardVisualizer(desired_path);
 
     auto*& head = current_project->all_boards.head;
