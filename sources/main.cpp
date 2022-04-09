@@ -30,7 +30,6 @@ int main(int argc, char* argv[]) {
     ConsoleInterface* ci = new ConsoleInterface(app);
 
     app->run();
-
     ci->run();
 
 

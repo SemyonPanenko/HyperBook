@@ -36,6 +36,9 @@ set(console_visint_src ${src_dir}/ConsoleVisInt)
 set(console_vis_src ${console_visint_src}/ConsoleVisualizer.cpp)
 set(cons_inter_src ${console_visint_src}/ConsoleInterface.cpp)
 
+set(file_vis_sources ${src_dir}/FileVisualizer)
+set(file_vis_src ${file_vis_sources}/FileVisualizer.cpp)
+
 #inner structure source files
 set(inner_structure_src ${src_dir}/InnerStructure)
 set(project_src ${inner_structure_src}/Project.cpp)
@@ -54,6 +57,7 @@ add_library(BoardTree ${board_tree_src})
 add_library(ProjectManager ${proj_man_src})
 add_library(Application ${app_src})
 add_library(ConsoleInterface ${cons_inter_src})
+add_library(FileVisualizer ${file_vis_src})
 
 #linking targets
 target_link_libraries(MainTarget 
@@ -68,6 +72,7 @@ target_link_libraries(MainTarget Project)
 target_link_libraries(MainTarget ProjectManager)
 target_link_libraries(MainTarget Application)
 target_link_libraries(MainTarget ConsoleInterface)
+target_link_libraries(MainTarget FileVisualizer)
 
 target_link_libraries(ProjectManager Project)
 target_link_libraries(ProjectManager BoardTree)

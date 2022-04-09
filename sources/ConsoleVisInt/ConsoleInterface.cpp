@@ -101,5 +101,19 @@ void ConsoleInterface::run()
             auto current_board_id = holding_app->board_manager->current_board->board_node_id;
             std::cout << board_id_message << current_board_id << "\n";
         }
+
+        if (current_command == save_to_file_command) {
+
+            std::cout << ask_for_text_file_name_message;
+            std::string desired_path;
+
+            std::cin >> desired_path;
+
+            holding_app->project_manager->save_project(desired_path);
+
+            std::cout << success_save_project_message;
+
+
+        }
     }
 }

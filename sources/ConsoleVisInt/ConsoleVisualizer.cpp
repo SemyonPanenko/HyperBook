@@ -20,7 +20,6 @@ void ConsoleBoardVisualizer::visualize_content(Content *const text_content)
 
     if (to_text_ptr)
     {
-
         std::cout << to_text_ptr->text_data;
     }
 

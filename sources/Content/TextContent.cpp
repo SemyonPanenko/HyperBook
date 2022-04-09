@@ -1,6 +1,4 @@
 #include "headers/Content/TextContent.h"
-#include <iostream>
-#include <fstream>
 
 TextContent::TextContent(){};
 
@@ -17,6 +15,7 @@ void TextContent::retrieve_content_from_file(const std::string &file_path)
     {
         std::cout << data_chunk << "\n";
         text_data += data_chunk;
+        text_data += "\n";
     }
 
     file_desc.close();

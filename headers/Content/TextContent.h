@@ -1,4 +1,6 @@
 #include "Content.h"
+#include <iostream>
+#include <fstream>
 #pragma once
 
 class TextContent : public Content {

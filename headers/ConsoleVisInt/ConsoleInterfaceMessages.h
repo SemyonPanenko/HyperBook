@@ -10,6 +10,7 @@ const std::string up_board_tree_command = "go_up";
 const std::string go_down_board_by_id_command = "go_down_id";
 const std::string get_current_id_command = "get_current_id";
 const std::string stop_command = "stop";
+const std::string save_to_file_command = "save_project";
 
 /// Informative messages
 const std::string opening_message = "===============================\nAll the preparations were completed and I am ready to listen to your commands\n"; 
@@ -26,3 +27,4 @@ const std::string no_upper_board_error_message = "Sorry, but you are already in 
 /// Success messages
 const std::string add_content_success_message = "Succesfully added content\n";
 const std::string success_went_down_message = "Successfully went down\n";
+const std::string success_save_project_message = "Successfully saved project\n";
