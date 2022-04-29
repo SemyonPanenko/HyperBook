@@ -1,9 +1,13 @@
-#include "headers/Application.h"
-#include "headers/ConsoleVisualizer.h"
-#include "headers/ConsoleInterface.h"
+#include "headers/InnerStructure/Application.h"
+#include "headers/ConsoleVisInt/ConsoleVisualizer.h"
+#include "headers/ConsoleVisInt/ConsoleInterface.h"
+#include "headers/InnerStructure/CommandHandler.h"
 #include <iostream>
+#include <ctime>
 
 int main(int argc, char* argv[]) {
+
+    std::srand(std::time(0));
 
     std::cout << "Launching main function\n";
 
@@ -23,7 +27,9 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Generated project manager\n";
 
-    Application* app = new Application(bm, pm);
+    CommandHandler* ch = new CommandHandler();
+
+    Application* app = new Application(bm, pm, ch);
 
     std::cout << "Generated application\n";
 
@@ -33,12 +39,12 @@ int main(int argc, char* argv[]) {
 
     ci->run();
 
-
     delete cbv;
     delete cpv;
     delete bm;
     delete pm;
     delete app;
     delete ci;
+    delete ch;
 
 }
