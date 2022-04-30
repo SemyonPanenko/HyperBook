@@ -6,6 +6,7 @@ const std::string slash = "/";
 const std::string text_extension = "txt";
 
 //scripts path
+const std::string delete_listing_file_script_path = "../sources/Scripts/delete_file_listing_files.sh";
 const std::string create_listing_file_script_path = "../sources/Scripts/create_file_listing_files.sh";
 const std::string create_nested_foled_script_path = "../sources/Scripts/create_nested_folder.sh";
 

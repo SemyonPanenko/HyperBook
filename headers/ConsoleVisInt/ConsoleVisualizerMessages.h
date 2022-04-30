@@ -7,7 +7,7 @@ const std::string sub_boards_message = "His subboards:\n";
 
 /// Success messages
 const std::string board_visualization_success_message = "Board has been succesfully visualized\n";
-const std::string tree_visualization_success_message = "Board has been succesfully visualized\n";
+const std::string tree_visualization_success_message = "Project structure has been succesfully visualized\n";
 
 /// Special symbold
 const char offset_symbol = '=';

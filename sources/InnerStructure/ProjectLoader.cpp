@@ -44,6 +44,11 @@ void ProjectLoader::load_content(BoardTree::BoardNode *current_board)
 
         load_content(it.second);
     }
+
+    std::string clearing_script = delete_listing_file_script_path;
+    auto clear_command = clearing_script + " " + this_board_folder_path;
+    std::system(clear_command.c_str());
+
 };
 
 void ProjectLoader::load_content_from_file(BoardTree::BoardNode *current_board, const std::string &file_name)

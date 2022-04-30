@@ -2,6 +2,7 @@
 #include "headers/Interfaces/ProjectVisualizer.h"
 #include "headers/Content/TextContent.h"
 #include "headers/ConsoleVisInt/ConsoleVisualizerMessages.h"
+#include "styles/ConsoleVisualizerStyles.h"
 #include <iostream>
 #pragma once
 

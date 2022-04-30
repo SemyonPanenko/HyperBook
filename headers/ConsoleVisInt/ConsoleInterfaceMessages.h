@@ -34,3 +34,4 @@ const std::string add_content_success_message = "Succesfully added content\n";
 const std::string success_went_down_message = "Successfully went down\n";
 const std::string success_save_project_message = "Successfully saved project\n";
 const std::string success_added_board_message = "Successfully saved project\n";
+const std::string success_loaded_project_message = "Succesfully loaded project\n";

@@ -60,9 +60,12 @@ FileProjectVisualizer::~FileProjectVisualizer() {
 void FileProjectVisualizer::visualize_tree(BoardTree& board_to_visualize) {
 
     std::ofstream project_visualizer_desc_;
-    project_visualizer_desc_.open(project_path_ + slash + project_tree_file_name);
+    
+    auto resulting_fiel = project_path_ + slash + project_tree_file_name;
+    project_visualizer_desc_.open(resulting_fiel);
 
     visualize_board_node(*board_to_visualize.head, project_visualizer_desc_);
+    project_visualizer_desc_.close();
 
 };
 
