@@ -15,11 +15,12 @@ const std::string load_from_file_command = "load_project";
 const std::string change_style_command = "change_style";
 const std::string change_board_name_command = "change_name";
 const std::string go_down_name_command = "go_down_name";
+const std::string empty_command = "";
 
 /// Informative messages
 const std::string opening_message = "===============================\nAll the preparations were completed and I am ready to listen to your commands\n"; 
 const std::string went_up_board_message = "Went up to board with id= ";
-const std::string board_id_message = "You are currently in a board with id= ";
+const std::string board_id_message = "You are currently in a board with id = ";
 
 /// Asking messagees 
 const std::string ask_for_save_project_path = "Please, enter full absolute path to the desired location\n";

@@ -2,7 +2,7 @@
 #pragma once
 
 /// Informative messages
-const std::string board_node_number_message = "Board node with id= ";
+const std::string board_node_number_message = "Board node with id = ";
 const std::string board_node_name_message = "Named: ";
 const std::string sub_boards_message = "His subboards:\n";
 const std::string board_name_introducing_message = "Name of the board: ";

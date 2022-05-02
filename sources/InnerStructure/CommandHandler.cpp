@@ -4,9 +4,15 @@ const std::string domain_error_message = "Already in upper board!\n";
 
 CommandHandler::CommandHandler() {};
 
+bool CommandHandler::get_running_status() {
+
+    return app->is_running;
+
+}
+
 void CommandHandler::handle_command_change_board_name(const std::string& new_board_name) {
 
-    app->board_manager->current_board->set_board_name(new_board_name);
+    app->board_manager->get_current_board()->set_board_name(new_board_name);
 
 }
 
@@ -25,7 +31,7 @@ void CommandHandler::handle_command_visualize_board()
 void CommandHandler::handle_command_add_board()
 {
 
-    app->board_manager->current_board->add_sub_board();
+    app->board_manager->get_current_board()->add_sub_board();
 };
 
 void CommandHandler::handle_command_visualize_project()
@@ -39,28 +45,17 @@ void CommandHandler::handle_command_add_content_from_text_file(std::string input
 
     TextContent *new_content = new TextContent();
     new_content->retrieve_content_from_file(input_file);
-    app->board_manager->current_board->board.add_content(new_content);
+    app->board_manager->get_current_board()->get_board().add_content(new_content);
 };
 
 void CommandHandler::handle_command_go_up()
 {
-    if (app->board_manager->current_board->upper_node)
-    {
-        app->board_manager->set_board(
-            app->board_manager->current_board->upper_node);
-
-        auto current_board_id = app->board_manager->current_board->board_node_id;
-    }
-    else
-    {
-        throw std::domain_error(domain_error_message);
-    }
+    app->board_manager->go_to_parent_board();
 };
 
 uint64_t CommandHandler::handle_command_get_current_id()
 {
-    auto current_board_id = app->board_manager->current_board->board_node_id;
-    return current_board_id;
+    return app->board_manager->get_current_id();
 };
 
 void CommandHandler::handle_command_save(std::string desired_path)
@@ -77,23 +72,25 @@ void CommandHandler::hadndle_command_load(std::string project_path)
 
 void CommandHandler::handle_command_go_down(uint64_t id)
 {
-    app->board_manager->set_board(
+    app->board_manager->set_board_by_id(id);
+}
 
-        app->board_manager->current_board->sub_boards.at(id)
+void CommandHandler::handle_command_change_style(visualizer_styles new_style){
 
-    );
+    app->board_manager->set_board_visualizer_style(new_style);
+    app->project_manager->set_project_visualizer_style(new_style);
 }
 
 void CommandHandler::handle_command_go_down_name(std::string subboard_name) {
 
-    auto& board_container = app->board_manager->current_board->sub_boards;
+    auto& board_container = app->board_manager->get_current_board()->get_subboards();
 
     uint64_t found_with_correct_name_counter = 0;
     uint64_t last_found_id = 0;
 
     for (auto& sub_board : board_container) {
 
-        if (sub_board.second->board.board_name == subboard_name){
+        if (sub_board.second->get_board().get_name() == subboard_name){
 
             last_found_id = sub_board.first;
             ++found_with_correct_name_counter;

@@ -4,8 +4,8 @@
 class UserInterface {
 public:
 
-    UserInterface(Application* holding_app) : holding_app(holding_app) {};  
+    UserInterface(CommandHandler* command_handler) : command_handler_(command_handler) {};  
     virtual void run() = 0;
-    Application* holding_app;
+    CommandHandler* command_handler_;
 
 };

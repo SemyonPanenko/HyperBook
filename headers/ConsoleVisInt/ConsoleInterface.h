@@ -8,7 +8,7 @@
 
 class ConsoleInterface : public UserInterface {
 public:
-    ConsoleInterface(Application* holding_app);
+    ConsoleInterface(CommandHandler* command_handler);
     void run() override;
     std::string await_command();
 
@@ -34,6 +34,7 @@ public:
     void prehandle_command_stop();
     void prehandle_chage_style();
     void prehandle_change_board_name();
+    void prehandle_empty_command();
 
 private:
     visualizer_styles current_style;
@@ -55,5 +56,6 @@ static const std::unordered_map<std::string, pointer_to_prehandler> command_to_h
     {get_current_id_command, &ConsoleInterface::prehandle_command_get_current_id},
     {change_style_command, &ConsoleInterface::prehandle_chage_style},
     {change_board_name_command, &ConsoleInterface::prehandle_change_board_name},
-    {go_down_name_command, &ConsoleInterface::prehandle_command_go_down_name}
+    {go_down_name_command, &ConsoleInterface::prehandle_command_go_down_name},
+    {empty_command, &ConsoleInterface::prehandle_empty_command}
 };

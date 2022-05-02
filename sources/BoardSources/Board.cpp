@@ -13,6 +13,18 @@ void Board::set_name(const std::string& new_name) {
 
 }
 
+void Board::set_id(size_t new_board_id){
+
+    board_id_ = new_board_id;
+
+}
+
+const std::string& Board::get_name() const  {
+
+    return board_name;
+
+}
+
 void Board::remove_content(uint64_t content_id)
 {
 

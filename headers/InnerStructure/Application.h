@@ -18,6 +18,10 @@ public:
     ~Application();
     bool is_running;
 
+private:
+
+    friend class CommandHandler;
+
     BoardManager *board_manager;
     ProjectManager *project_manager;
     CommandHandler *command_handler;

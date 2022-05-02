@@ -7,12 +7,12 @@ current_style_map(&style_default){}
 void ConsoleBoardVisualizer::visualize_board(const Board &board)
 {
     std::cout << (*current_style_map).at(message_type::info_type);
-    std::cout << board_name_introducing_message << board.board_name << "\n";
+    std::cout << board_name_introducing_message << board.get_name() << "\n";
 
     std::cout << (*current_style_map).at(message_type::stash_type);
 
-    for (auto content_iter = board.contents.begin();
-         content_iter != board.contents.end();
+    for (auto content_iter = board.get_content_container().begin();
+         content_iter != board.get_content_container().end();
          ++content_iter)
     {
         visualize_content(content_iter->second);
@@ -56,17 +56,17 @@ void ConsoleProjectVisualizer::visualize_tree(BoardTree &board_to_visualize)
     std::cout << tree_visualization_success_message;
 }
 
-void ConsoleProjectVisualizer::visualize_board_node(const BoardTree::BoardNode &node_to_visualize)
+void ConsoleProjectVisualizer::visualize_board_node(BoardTree::BoardNode &node_to_visualize)
 {
     std::string offset_str(current_offset, offset_symbol);
 
     std::cout << (*current_style_map).at(message_type::info_type);
     std::cout << offset_str;
-    std::cout << board_node_number_message << node_to_visualize.board_node_id << "\n";
+    std::cout << board_node_number_message << node_to_visualize.get_board_id() << "\n";
     std::cout << offset_str;
-    std::cout << board_node_name_message << node_to_visualize.board.board_name << "\n";
+    std::cout << board_node_name_message << node_to_visualize.get_board().get_name() << "\n";
 
-    if (node_to_visualize.sub_boards.size())
+    if (node_to_visualize.get_subboards().size())
     {
 
         std::cout << offset_str;
@@ -74,7 +74,7 @@ void ConsoleProjectVisualizer::visualize_board_node(const BoardTree::BoardNode &
 
         current_offset += row_offset;
 
-        for (auto sub_board_ptr : node_to_visualize.sub_boards)
+        for (auto sub_board_ptr : node_to_visualize.get_subboards())
         {
 
             visualize_board_node(*(sub_board_ptr.second));

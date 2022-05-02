@@ -1,5 +1,6 @@
 #include <string>
 #include <unordered_map>
+#pragma once
 
 enum class message_type {
 
@@ -16,12 +17,12 @@ enum class visualizer_styles {
 using style_map_type = const std::unordered_map<message_type, const std::string&>;
 
 //Default style
-const std::string error_message_default = "\033[1;31m";
-const std::string success_message_default = "\033[32m";
-const std::string ask_message_default = "\033[37m";
-const std::string info_message_default = "\033[34m";
+static const std::string error_message_default = "\033[1;31m";
+static const std::string success_message_default = "\033[32m";
+static const std::string ask_message_default = "\033[37m";
+static const std::string info_message_default = "\033[34m";
 
-const std::string stash_style = "\033[0m";
+static const std::string stash_style = "\033[0m";
 
 style_map_type style_default{
 
@@ -34,12 +35,12 @@ style_map_type style_default{
 }; 
 
 //Redish style
-const std::string error_message_redish = "\033[1;30m";
-const std::string success_message_redish = "\033[1;31m";
-const std::string ask_message_redish = "\033[91m";
-const std::string info_message_redish = "\033[97m";
-
-const std::string stash_style_redish = "\033[0m";
+static const std::string error_message_redish = "\033[1;30m";
+static const std::string success_message_redish = "\033[1;31m";
+static const std::string ask_message_redish = "\033[91m";
+static const std::string info_message_redish = "\033[97m";
+ 
+static const std::string stash_style_redish = "\033[0m";
 
 
 style_map_type style_redish{
@@ -52,7 +53,7 @@ style_map_type style_redish{
 
 }; 
 
-const std::unordered_map<visualizer_styles, style_map_type>
+static const std::unordered_map<visualizer_styles, style_map_type>
 style_to_map {
 
     {visualizer_styles::default_style, style_default},
@@ -60,7 +61,7 @@ style_to_map {
 
 };
 
-const std::unordered_map<std::string, visualizer_styles>
+static const std::unordered_map<std::string, visualizer_styles>
 style_string_to_style {
 
     {"default", visualizer_styles::default_style},

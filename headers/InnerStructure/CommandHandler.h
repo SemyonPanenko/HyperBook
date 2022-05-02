@@ -1,6 +1,7 @@
 #pragma once
 #include "headers/InnerStructure/Application.h"
 #include "headers/InnerStructure/CommandHandlerErrorMessages.h"
+#include "styles/ConsoleVisualizerStyles.h"
 #include <string>
 
 class Application; 
@@ -32,11 +33,12 @@ public:
     // auxillary command
     void handle_command_stop();
     void handle_command_change_board_name(const std::string& new_board_name);
+    bool get_running_status();
+    void handle_command_change_style(visualizer_styles new_style);
 
 private:
 
-friend class Application;
-
+    friend class Application;
     Application* app;
 
 };

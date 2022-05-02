@@ -1,6 +1,6 @@
 #include "headers/ConsoleVisInt/ConsoleInterface.h"
 
-ConsoleInterface::ConsoleInterface(Application *holding_app) : UserInterface(holding_app), current_style(visualizer_styles::default_style), current_style_map(&style_default){};
+ConsoleInterface::ConsoleInterface(CommandHandler *command_handler) : UserInterface(command_handler), current_style(visualizer_styles::default_style), current_style_map(&style_default){};
 
 std::string ConsoleInterface::await_command()
 {
@@ -19,7 +19,7 @@ void ConsoleInterface::prehandle_command_go_up()
     try
     {
 
-        holding_app->command_handler->handle_command_go_up();
+        command_handler_->handle_command_go_up();
         std::cout << (*current_style_map).at(message_type::success_type);
         std::cout << success_went_up_message;
 
@@ -45,7 +45,7 @@ void ConsoleInterface::prehandle_command_go_down_name() {
 
     try {
 
-        holding_app->command_handler->handle_command_go_down_name(input_name);
+        command_handler_->handle_command_go_down_name(input_name);
         std::cout << (*current_style_map).at(message_type::success_type);
         std::cout << success_going_down_name_message;
 
@@ -71,7 +71,7 @@ void ConsoleInterface::prehandle_command_go_down()
 
     try
     {
-        holding_app->command_handler->handle_command_go_down(board_id);
+        command_handler_->handle_command_go_down(board_id);
 
         std::cout << (*current_style_map).at(message_type::success_type);
         std::cout << success_went_down_message;
@@ -87,7 +87,7 @@ void ConsoleInterface::prehandle_command_go_down()
 void ConsoleInterface::prehandle_command_get_current_id()
 {
 
-    auto current_board_id = holding_app->command_handler->handle_command_get_current_id();
+    auto current_board_id = command_handler_->handle_command_get_current_id();
 
     std::cout << (*current_style_map).at(message_type::info_type);
     std::cout << board_id_message << current_board_id << "\n";
@@ -104,7 +104,7 @@ void ConsoleInterface::prehandle_command_save()
 
     std::cout << (*current_style_map).at(message_type::stash_type);
     std::cin >> desired_path;
-    holding_app->command_handler->handle_command_save(desired_path);
+    command_handler_->handle_command_save(desired_path);
 
     std::cout << (*current_style_map).at(message_type::success_type);
     std::cout << success_save_project_message;
@@ -120,11 +120,10 @@ void ConsoleInterface::prehadndle_command_load()
     std::cout << (*current_style_map).at(message_type::stash_type);
     std::cin >> project_path_;
 
-    holding_app->command_handler->hadndle_command_load(project_path_);
+    command_handler_->hadndle_command_load(project_path_);
 
     std::cout << (*current_style_map).at(message_type::success_type);
     std::cout << success_loaded_project_message;
-    std::cin.ignore();
 };
 
 // content manipulation
@@ -139,7 +138,7 @@ void ConsoleInterface::prehandle_command_add_content_from_text_file()
     std::cout << (*current_style_map).at(message_type::stash_type);
     std::cin >> input_file_name;
 
-    holding_app->command_handler->handle_command_add_content_from_text_file(std::move(input_file_name));
+    command_handler_->handle_command_add_content_from_text_file(std::move(input_file_name));
 
     std::cout << (*current_style_map).at(message_type::success_type);
     std::cout << add_content_success_message;
@@ -147,7 +146,7 @@ void ConsoleInterface::prehandle_command_add_content_from_text_file()
 void ConsoleInterface::prehandle_command_add_board()
 {
 
-    holding_app->command_handler->handle_command_add_board();
+    command_handler_->handle_command_add_board();
 
     std::cout << (*current_style_map).at(message_type::success_type);
     std::cout << success_added_board_message;
@@ -156,20 +155,26 @@ void ConsoleInterface::prehandle_command_add_board()
 // visualization commands
 void ConsoleInterface::prehandle_command_visualize_project()
 {
-    holding_app->command_handler->handle_command_visualize_project();
+    command_handler_->handle_command_visualize_project();
 };
 void ConsoleInterface::prehandle_command_visualize_board()
 {
 
-    holding_app->command_handler->handle_command_visualize_board();
+    command_handler_->handle_command_visualize_board();
 };
 
 // auxillary commands
 void ConsoleInterface::prehandle_command_stop()
 {
 
-    holding_app->command_handler->handle_command_stop();
+    command_handler_->handle_command_stop();
 };
+
+void ConsoleInterface::prehandle_empty_command() {
+
+
+
+}
 
 void ConsoleInterface::prehandle_change_board_name() {
 
@@ -177,10 +182,9 @@ void ConsoleInterface::prehandle_change_board_name() {
     std::cout << ask_new_name_string;
 
     std::string new_name;
-    std::cin.ignore();
     std::getline(std::cin, new_name);
 
-    holding_app->command_handler->handle_command_change_board_name(new_name);
+    command_handler_->handle_command_change_board_name(new_name);
 
     std::cout << (*current_style_map).at(message_type::success_type);
     std::cout << success_changing_name;
@@ -210,26 +214,7 @@ void ConsoleInterface::prehandle_chage_style() {
 
     }
 
-    auto vis_board_ptr_ = holding_app->board_manager->current_visualizer;
-    auto vis_proj_ptr_ = holding_app->project_manager->current_visualizer;
-
-    auto vis_board_ptr = dynamic_cast<ConsoleBoardVisualizer*>(vis_board_ptr_);
-    auto vis_proj_ptr = dynamic_cast<ConsoleProjectVisualizer*>(vis_proj_ptr_);
-
-    if (!vis_board_ptr || !vis_proj_ptr){
-
-        std::cout << (*current_style_map).at(message_type::error_type);
-        std::cout << wrong_initializer_for_restyling;
-
-    } else {
-
-        vis_board_ptr->set_style(current_style);
-        vis_proj_ptr->set_style(current_style);
-
-    }
-
-    std::cout << (*current_style_map).at(message_type::success_type);
-    std::cout << success_changed_style;
+    command_handler_->handle_command_change_style(style_string_to_style.at(new_style));
 
 }
 
@@ -239,7 +224,7 @@ void ConsoleInterface::run()
     std::cout << (*current_style_map).at(message_type::info_type);
     std::cout << opening_message;
 
-    while (holding_app->is_running)
+    while (command_handler_->get_running_status())
     {
 
         std::string current_command = await_command();

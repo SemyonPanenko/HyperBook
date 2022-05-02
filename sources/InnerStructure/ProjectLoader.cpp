@@ -17,7 +17,7 @@ void ProjectLoader::load_content()
 void ProjectLoader::load_content(BoardTree::BoardNode *current_board)
 {
 
-    auto curr_id = current_board->board.board_id_;
+    auto curr_id = current_board->get_board().get_board_id();
     auto this_board_folder_path = project_path_ + slash + std::to_string(curr_id);
 
     std::string listing_script = create_listing_file_script_path;
@@ -39,7 +39,7 @@ void ProjectLoader::load_content(BoardTree::BoardNode *current_board)
         std::getline(listing_file_desc, curr_file_name);
     }
 
-    for (auto it : current_board->sub_boards)
+    for (auto it : current_board->get_subboards())
     {
 
         load_content(it.second);
@@ -62,7 +62,7 @@ void ProjectLoader::load_content_from_file(BoardTree::BoardNode *current_board, 
         TextContent *current_content = new TextContent();
         current_content->retrieve_content_from_file(file_name);
 
-        current_board->board.add_content(current_content);
+        current_board->get_board().add_content(current_content);
     }
 }
 
@@ -86,7 +86,7 @@ void ProjectLoader::load_project_tree(BoardTree::BoardNode *current_board)
     // Stoy, komu govoryu!!!!
     curr_board_id = std::stoi(curr_line);
     current_board->set_board_node_id(curr_board_id);
-    
+
     std::getline(project_tree_desc_, curr_line);
     current_board->set_board_name(curr_line);
 
