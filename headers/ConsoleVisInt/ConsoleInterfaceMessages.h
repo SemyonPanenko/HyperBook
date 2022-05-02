@@ -38,6 +38,7 @@ const std::string no_upper_board_error_message = "Sorry, but you are already in 
 const std::string unknown_command_error = "Unknow command. Try again\n";
 const std::string no_such_style_message = "No such style. Aborting command\n";
 const std::string wrong_initializer_for_restyling = "Could not swithc visualizer to new style\n";
+const std::string failed_project_loading = "Failed to load a project\n";
 
 /// Success messages
 const std::string add_content_success_message = "Succesfully added content\n";

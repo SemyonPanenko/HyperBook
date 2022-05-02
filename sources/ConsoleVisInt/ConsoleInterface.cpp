@@ -120,10 +120,20 @@ void ConsoleInterface::prehadndle_command_load()
     std::cout << (*current_style_map).at(message_type::stash_type);
     std::cin >> project_path_;
 
-    command_handler_->hadndle_command_load(project_path_);
+    try {
 
-    std::cout << (*current_style_map).at(message_type::success_type);
-    std::cout << success_loaded_project_message;
+        command_handler_->hadndle_command_load(project_path_);
+
+        std::cout << (*current_style_map).at(message_type::success_type);
+        std::cout << success_loaded_project_message;
+
+    } catch (std::exception& excep) {
+
+        std::cout << (*current_style_map).at(message_type::error_type);
+        std::cout << failed_project_loading;
+
+    }
+
 };
 
 // content manipulation
@@ -206,7 +216,7 @@ void ConsoleInterface::prehandle_chage_style() {
         current_style = visualizer_style_type;
         current_style_map = &style_to_map.at(current_style);
 
-    } catch (std::invalid_argument& inv_arg) {
+    } catch (std::out_of_range& inv_arg) {
 
         std::cout << (*current_style_map).at(message_type::error_type);
         std::cout << no_such_style_message;
@@ -214,7 +224,20 @@ void ConsoleInterface::prehandle_chage_style() {
 
     }
 
-    command_handler_->handle_command_change_style(style_string_to_style.at(new_style));
+    try {
+
+        command_handler_->handle_command_change_style(style_string_to_style.at(new_style));
+        
+        std::cout << (*current_style_map).at(message_type::success_type);
+        std::cout << success_changed_style;
+
+    } catch(std::out_of_range& oor_excep) {
+
+        std::cout << (*current_style_map).at(message_type::error_type);
+        std::cout << wrong_initializer_for_restyling;
+
+    }
+
 
 }
 
