@@ -13,6 +13,8 @@ const std::string stop_command = "stop";
 const std::string save_to_file_command = "save_project";
 const std::string load_from_file_command = "load_project";
 const std::string change_style_command = "change_style";
+const std::string change_board_name_command = "change_name";
+const std::string go_down_name_command = "go_down_name";
 
 /// Informative messages
 const std::string opening_message = "===============================\nAll the preparations were completed and I am ready to listen to your commands\n"; 
@@ -25,6 +27,8 @@ const std::string ask_project_path = "Please, enter full absolute path to projec
 const std::string ask_for_id_message = "Please enter id of a required board: \n";
 const std::string ask_for_text_file_name_message = "Please, enter a full absolute path to a text_file: \n";
 const std::string ask_for_style_string = "Please, enter a style name\n";
+const std::string ask_new_name_string = "Please, enter a new name for current board\n";
+const std::string ask_board_name_message = "Please, enter a name of a desired subboard\n";
 
 /// Error messages
 const std::string no_sub_board_error = "Soryy, no such sub board\n";
@@ -41,3 +45,6 @@ const std::string success_save_project_message = "Successfully saved project\n";
 const std::string success_added_board_message = "Successfully saved project\n";
 const std::string success_loaded_project_message = "Succesfully loaded project\n";
 const std::string success_changed_style = "Succesfully changed style\n";
+const std::string success_changing_name = "Succesfully changed name of current board\n";
+const std::string success_went_up_message = "Succesfully went up\n";
+const std::string success_going_down_name_message = "Succesfully went down by name\n";

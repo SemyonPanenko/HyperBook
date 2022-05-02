@@ -73,6 +73,7 @@ void FileProjectVisualizer::visualize_board_node(const BoardTree::BoardNode& boa
 
     file_desc_ << board_node_begin_tag << std::endl;
     file_desc_ << board_node.board_node_id << std::endl;
+    file_desc_ << board_node.board.board_name << std::endl;
     
     if (board_node.sub_boards.size()){
 

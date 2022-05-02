@@ -86,6 +86,9 @@ void ProjectLoader::load_project_tree(BoardTree::BoardNode *current_board)
     // Stoy, komu govoryu!!!!
     curr_board_id = std::stoi(curr_line);
     current_board->set_board_node_id(curr_board_id);
+    
+    std::getline(project_tree_desc_, curr_line);
+    current_board->set_board_name(curr_line);
 
     while (curr_line != board_node_end_tag)
     {

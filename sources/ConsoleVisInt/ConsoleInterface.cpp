@@ -8,7 +8,8 @@ std::string ConsoleInterface::await_command()
     std::string result;
 
     std::cout << stash_style;
-    std::cin >> result;
+    std::getline(std::cin, result);
+
     return result;
 }
 // tree traversal
@@ -19,6 +20,9 @@ void ConsoleInterface::prehandle_command_go_up()
     {
 
         holding_app->command_handler->handle_command_go_up();
+        std::cout << (*current_style_map).at(message_type::success_type);
+        std::cout << success_went_up_message;
+
     }
     catch (std::exception &excep)
     {
@@ -26,7 +30,34 @@ void ConsoleInterface::prehandle_command_go_up()
         std::cout << (*current_style_map).at(message_type::error_type);
         std::cout << upper_board_error;
     }
+
 };
+
+void ConsoleInterface::prehandle_command_go_down_name() {
+
+    std::cout << (*current_style_map).at(message_type::ask_type);
+    std::cout << ask_board_name_message;
+
+    std::string input_name;
+    std::cout << (*current_style_map).at(message_type::stash_type);
+    
+    std::getline(std::cin, input_name);
+
+    try {
+
+        holding_app->command_handler->handle_command_go_down_name(input_name);
+        std::cout << (*current_style_map).at(message_type::success_type);
+        std::cout << success_going_down_name_message;
+
+    } catch (std::invalid_argument& inv_arg) {
+
+        std::cout << (*current_style_map).at(message_type::error_type);
+        std::cout << inv_arg.what();
+        return;
+
+    }
+
+}
 
 void ConsoleInterface::prehandle_command_go_down()
 {
@@ -93,6 +124,7 @@ void ConsoleInterface::prehadndle_command_load()
 
     std::cout << (*current_style_map).at(message_type::success_type);
     std::cout << success_loaded_project_message;
+    std::cin.ignore();
 };
 
 // content manipulation
@@ -132,12 +164,28 @@ void ConsoleInterface::prehandle_command_visualize_board()
     holding_app->command_handler->handle_command_visualize_board();
 };
 
-// auxillary command
+// auxillary commands
 void ConsoleInterface::prehandle_command_stop()
 {
 
     holding_app->command_handler->handle_command_stop();
 };
+
+void ConsoleInterface::prehandle_change_board_name() {
+
+    std::cout << (*current_style_map).at(message_type::ask_type);
+    std::cout << ask_new_name_string;
+
+    std::string new_name;
+    std::cin.ignore();
+    std::getline(std::cin, new_name);
+
+    holding_app->command_handler->handle_command_change_board_name(new_name);
+
+    std::cout << (*current_style_map).at(message_type::success_type);
+    std::cout << success_changing_name;
+
+}
 
 void ConsoleInterface::prehandle_chage_style() {
 

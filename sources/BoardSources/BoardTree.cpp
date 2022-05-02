@@ -24,6 +24,12 @@ BoardTree::BoardNode* BoardTree::BoardNode::add_sub_board() {
 
 }
 
+void BoardTree::BoardNode::set_board_name(const std::string& new_name) {
+
+    board.set_name(new_name);
+
+}
+
 void BoardTree::BoardNode::set_board_node_id(uint64_t new_id) {
 
     auto old_id = board_node_id;

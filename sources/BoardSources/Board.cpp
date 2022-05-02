@@ -7,6 +7,12 @@ void Board::add_content(Content* content_to_add)
     contents.insert({current_content_id, content_to_add});
 }
 
+void Board::set_name(const std::string& new_name) {
+
+    board_name = new_name;
+
+}
+
 void Board::remove_content(uint64_t content_id)
 {
 
@@ -34,5 +40,5 @@ Board::~Board() {
 
 }   
 
-Board::Board() {
+Board::Board() : board_name(default_board_name) {
 }

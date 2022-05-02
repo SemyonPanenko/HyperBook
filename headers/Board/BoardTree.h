@@ -21,6 +21,7 @@ public:
 
         BoardNode *add_sub_board();
         void set_board_node_id(uint64_t new_id);
+        void set_board_name(const std::string& new_name);
     };
 
     BoardTree();

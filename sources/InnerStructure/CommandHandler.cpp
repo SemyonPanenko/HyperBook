@@ -4,6 +4,12 @@ const std::string domain_error_message = "Already in upper board!\n";
 
 CommandHandler::CommandHandler() {};
 
+void CommandHandler::handle_command_change_board_name(const std::string& new_board_name) {
+
+    app->board_manager->current_board->set_board_name(new_board_name);
+
+}
+
 void CommandHandler::handle_command_stop()
 {
 
@@ -76,4 +82,38 @@ void CommandHandler::handle_command_go_down(uint64_t id)
         app->board_manager->current_board->sub_boards.at(id)
 
     );
+}
+
+void CommandHandler::handle_command_go_down_name(std::string subboard_name) {
+
+    auto& board_container = app->board_manager->current_board->sub_boards;
+
+    uint64_t found_with_correct_name_counter = 0;
+    uint64_t last_found_id = 0;
+
+    for (auto& sub_board : board_container) {
+
+        if (sub_board.second->board.board_name == subboard_name){
+
+            last_found_id = sub_board.first;
+            ++found_with_correct_name_counter;
+
+        }
+
+    }
+
+    if (found_with_correct_name_counter > 1){
+
+        throw std::invalid_argument(too_many_subboards_with_this_name);
+
+    } else if (found_with_correct_name_counter == 0) {
+
+        throw std::invalid_argument(too_few_subboards_with_this_name);
+
+    } else {
+
+        handle_command_go_down(last_found_id);
+
+    }
+
 }

@@ -6,6 +6,8 @@ current_style_map(&style_default){}
 
 void ConsoleBoardVisualizer::visualize_board(const Board &board)
 {
+    std::cout << (*current_style_map).at(message_type::info_type);
+    std::cout << board_name_introducing_message << board.board_name << "\n";
 
     std::cout << (*current_style_map).at(message_type::stash_type);
 
@@ -40,7 +42,6 @@ void ConsoleBoardVisualizer::set_style(const visualizer_styles& new_style) {
 
 }
 
-
 ConsoleProjectVisualizer::ConsoleProjectVisualizer() :
 current_style(visualizer_styles::default_style),
 current_style_map(&style_default){}
@@ -62,6 +63,8 @@ void ConsoleProjectVisualizer::visualize_board_node(const BoardTree::BoardNode &
     std::cout << (*current_style_map).at(message_type::info_type);
     std::cout << offset_str;
     std::cout << board_node_number_message << node_to_visualize.board_node_id << "\n";
+    std::cout << offset_str;
+    std::cout << board_node_name_message << node_to_visualize.board.board_name << "\n";
 
     if (node_to_visualize.sub_boards.size())
     {

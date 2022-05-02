@@ -1,25 +1,32 @@
 board_node_begin_tag: 
 1255679109
+General information on patterns
 sub_boards_begin_tag: 
 board_node_begin_tag: 
 1856886450
+Structural patterns
 sub_boards_begin_tag: 
 board_node_begin_tag: 
 1161942230
+Fabric method 
 board_node_end_tag: 
 board_node_begin_tag: 
 1018460467
+Builder pattern
 board_node_end_tag: 
 sub_boards_end_tag: 
 board_node_end_tag: 
 board_node_begin_tag: 
 1856433597
+Generating patterns
 sub_boards_begin_tag: 
 board_node_begin_tag: 
 1640577338
+Bridge pattern
 board_node_end_tag: 
 board_node_begin_tag: 
 1650528664
+Adapter pattern
 board_node_end_tag: 
 sub_boards_end_tag: 
 board_node_end_tag: 

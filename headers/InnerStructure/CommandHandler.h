@@ -1,5 +1,6 @@
 #pragma once
 #include "headers/InnerStructure/Application.h"
+#include "headers/InnerStructure/CommandHandlerErrorMessages.h"
 #include <string>
 
 class Application; 
@@ -12,6 +13,8 @@ public:
     // tree traversal
     void handle_command_go_up();
     void handle_command_go_down(uint64_t id);
+    void handle_command_go_down_name(std::string subboard_name);
+    
     uint64_t handle_command_get_current_id();
 
     // project management
@@ -28,6 +31,7 @@ public:
 
     // auxillary command
     void handle_command_stop();
+    void handle_command_change_board_name(const std::string& new_board_name);
 
 private:
 
