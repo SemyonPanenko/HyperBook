@@ -12,25 +12,41 @@ const std::string get_current_id_command = "get_current_id";
 const std::string stop_command = "stop";
 const std::string save_to_file_command = "save_project";
 const std::string load_from_file_command = "load_project";
+const std::string change_style_command = "change_style";
+const std::string change_board_name_command = "change_name";
+const std::string go_down_name_command = "go_down_name";
+const std::string empty_command = "";
 
 /// Informative messages
 const std::string opening_message = "===============================\nAll the preparations were completed and I am ready to listen to your commands\n"; 
 const std::string went_up_board_message = "Went up to board with id= ";
-const std::string board_id_message = "You are currently in a board with id= ";
+const std::string board_id_message = "You are currently in a board with id = ";
 
 /// Asking messagees 
 const std::string ask_for_save_project_path = "Please, enter full absolute path to the desired location\n";
 const std::string ask_project_path = "Please, enter full absolute path to project\n";
 const std::string ask_for_id_message = "Please enter id of a required board: \n";
 const std::string ask_for_text_file_name_message = "Please, enter a full absolute path to a text_file: \n";
+const std::string ask_for_style_string = "Please, enter a style name\n";
+const std::string ask_new_name_string = "Please, enter a new name for current board\n";
+const std::string ask_board_name_message = "Please, enter a name of a desired subboard\n";
 
 /// Error messages
 const std::string no_sub_board_error = "Soryy, no such sub board\n";
 const std::string upper_board_error = "Sorry, already in upper board!\n";
 const std::string no_upper_board_error_message = "Sorry, but you are already in the upper-most board!\n";
+const std::string unknown_command_error = "Unknow command. Try again\n";
+const std::string no_such_style_message = "No such style. Aborting command\n";
+const std::string wrong_initializer_for_restyling = "Could not swithc visualizer to new style\n";
+const std::string failed_project_loading = "Failed to load a project\n";
 
 /// Success messages
 const std::string add_content_success_message = "Succesfully added content\n";
 const std::string success_went_down_message = "Successfully went down\n";
 const std::string success_save_project_message = "Successfully saved project\n";
 const std::string success_added_board_message = "Successfully saved project\n";
+const std::string success_loaded_project_message = "Succesfully loaded project\n";
+const std::string success_changed_style = "Succesfully changed style\n";
+const std::string success_changing_name = "Succesfully changed name of current board\n";
+const std::string success_went_up_message = "Succesfully went up\n";
+const std::string success_going_down_name_message = "Succesfully went down by name\n";

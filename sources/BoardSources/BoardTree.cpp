@@ -4,7 +4,7 @@
 BoardTree::BoardNode::BoardNode(BoardNode* upper_node=nullptr) : upper_node(upper_node) {
 
     board_node_id = std::rand();
-    board.board_id_ = board_node_id;
+    board.set_id(board_node_id);
 
 }
 
@@ -24,12 +24,24 @@ BoardTree::BoardNode* BoardTree::BoardNode::add_sub_board() {
 
 }
 
+void BoardTree::BoardNode::set_board_name(const std::string& new_name) {
+
+    board.set_name(new_name);
+
+}
+
+uint64_t BoardTree::BoardNode::get_board_id() const {
+
+    return board_node_id;
+
+}
+
 void BoardTree::BoardNode::set_board_node_id(uint64_t new_id) {
 
     auto old_id = board_node_id;
 
     board_node_id = new_id;
-    board.board_id_ = new_id;
+    board.set_id(new_id);
 
     if (upper_node) {
 
@@ -41,3 +53,20 @@ void BoardTree::BoardNode::set_board_node_id(uint64_t new_id) {
 
 };
 
+BoardTree::BoardNode* const BoardTree::BoardNode::get_upper_node() const {
+
+    return upper_node;
+
+}
+
+Board& BoardTree::BoardNode::get_board() {
+
+    return board;
+
+}
+
+const std::unordered_map<uint64_t, BoardTree::BoardNode*>& BoardTree::BoardNode::get_subboards() const {
+
+    return sub_boards;
+
+}

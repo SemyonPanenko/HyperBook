@@ -17,6 +17,12 @@ public:
     void save_project(std::string& desired_path);
     void load_project(std::string& project_path);
 
+    void set_project_visualizer_style(visualizer_styles new_style);
+
+private:
+
+    friend class Application;
+
     Project* current_project;
     ProjectVisualizer* current_visualizer;
     

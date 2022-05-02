@@ -12,6 +12,12 @@ void ProjectManager::visualize_project() {
 
 };
 
+void ProjectManager::set_project_visualizer_style(visualizer_styles new_style) {
+
+    current_visualizer->set_style(new_style);
+
+}
+
 void ProjectManager::save_project(std::string& desired_path) {
 
     std::string clean_directory_command = clean_directory_script_path + " " + desired_path;

@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Generated application\n";
 
-    ConsoleInterface* ci = new ConsoleInterface(app);
+    ConsoleInterface* ci = new ConsoleInterface(ch);
 
     app->run();
 
